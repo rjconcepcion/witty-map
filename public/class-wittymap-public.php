@@ -72,7 +72,7 @@ class witty_map_public
 
 		$support = $this->support;
 
-		echo $this->support->witty_template( 'public', 'witty-map-wrap' );
+		return $this->support->witty_template( 'public', 'witty-map-wrap', [], false );
 
 	}
 
