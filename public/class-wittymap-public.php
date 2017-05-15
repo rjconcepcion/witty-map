@@ -29,9 +29,9 @@ class witty_map_public
 	 */
 	public function enqueue(){
 
-		wp_enqueue_style(	'witty-map', DIR_URL . '/public/css/witty-map-base.css' );
+		wp_enqueue_style(	'witty-map', WITTY_DIR_URL . '/public/css/witty-map-base.css' );
 		wp_enqueue_script(	'googlemap-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAR-8XBC5oJFZL9aPbx1v7z1rq9_Ex3PQM', [], '', true );
-		wp_enqueue_script(	'googlemap', DIR_URL . '/public/js/googlemap.js', [], '', true );
+		wp_enqueue_script(	'googlemap', WITTY_DIR_URL . '/public/js/googlemap.js', [], '', true );
 		
 	}
 
@@ -41,7 +41,7 @@ class witty_map_public
 	public function load_supports()
 	{
 		
-		require_once DIR_INC . '/class-witty-support.php';
+		require_once WITTY_DIR_INC . '/class-witty-support.php';
 		$this->support = new witty_support();
 	
 	}

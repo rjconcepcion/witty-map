@@ -16,7 +16,7 @@ class witty_support
 
 		//return plugin_dir_url();
 		//
-		echo DIR;
+		echo WITTY_DIR;
 
 	}
 
@@ -28,7 +28,7 @@ class witty_support
 			echo 'Invalid Type :-('; return false;
 		endif;
 
-		$path = DIR ."/$type/partials/$template.php";
+		$path = WITTY_DIR ."/$type/partials/$template.php";
 
 		if ( file_exists( $path ) ):
 	            

@@ -28,7 +28,7 @@ class witty_map_backend
 	public function load_supports()
 	{
 		
-		require_once DIR_INC . '/class-witty-support.php';
+		require_once WITTY_DIR_INC . '/class-witty-support.php';
 		$this->support = new witty_support();
 	}
 
