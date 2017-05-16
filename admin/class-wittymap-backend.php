@@ -47,17 +47,31 @@ class witty_map_backend
 			'dashicons-flag',
 			8
 		);
+
+		/**
+		 * Will not continue if admin menu was not successfully create
+		 */
+		add_action( 'admin_init', [ $this, 'register_my_cool_plugin_settings'] );
 	}
 
 	/**
-	 * Callback function
+	 * Registering Option.
+	 */
+	public function register_my_cool_plugin_settings() {
+
+		register_setting( 'witty-map-settings-group', 'googlemapapi_key' );
+		register_setting( 'witty-map-settings-group', 'map_location' );
+		register_setting( 'witty-map-settings-group', 'zoom_level' );
+	}
+
+	/**
+	 * Option Page Form
 	 */
 	public function test1(){
 
 		$support = $this->support;
 
-		echo $support->witty_template( 'admin', 'test' );
-
+		echo $support->witty_template( 'admin', 'test');
 	}
 
 }
