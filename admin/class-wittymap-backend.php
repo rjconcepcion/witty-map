@@ -53,13 +53,13 @@ class witty_map_backend
 		/**
 		 * Will not continue if admin menu was not successfully create
 		 */
-		add_action( 'admin_init', [ $this, 'register_my_cool_plugin_settings'] );
+		add_action( 'admin_init', [ $this, 'register_options'] );
 	}
 
 	/**
 	 * Registering Option.
 	 */
-	public function register_my_cool_plugin_settings() {
+	public function register_options() {
 
 		register_setting( 'witty-map-settings-group', 'googlemapapi_key' );
 		register_setting( 'witty-map-settings-group', 'wittymap_loc' );
