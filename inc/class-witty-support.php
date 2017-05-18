@@ -1,28 +1,27 @@
 <?php 
 
+/**
+ * Witty plugin base support
+ *
+ * @class       witty_support
+ * @version     1
+ * @package     wittyMap/Inc
+ * @author      Robert John Concepcion
+ */
 class witty_support
 {
 
-	public $prop1 = "asda";
-
-	public function __construct(){
-
-
-
-	}
-
-	public function get_template(){
-
-
-		//return plugin_dir_url();
-		//
-		echo WITTY_DIR;
-
-	}
-
-	public function witty_template( $type='root' ,$template, $vars = array(), $echo = true ) {
+	/**
+	 * WITTY TEMPLATING FUNCTION
+	 * @param  string  $type     	set folder of partial
+	 * @param  string  $template 	name of file
+	 * @param  array   $vars     	key as var name value as value
+	 * @param  boolean $echo     	echo content
+	 * @return string				html elem
+	 */
+	public function witty_template( $type='inc' ,$template, $vars = array(), $echo = true ) {
 		
-		$allowed_type = [ 'root', 'admin', 'public' ];
+		$allowed_type = [ 'inc', 'admin', 'public' ];
 
 		if( !in_array( $type, $allowed_type) ):
 			echo 'Invalid Type :-('; return false;
@@ -47,6 +46,32 @@ class witty_support
 			include $path;
 			
 		endif;
+	}
+
+	/**
+	 * set an attribute of html tag
+	 * @param  array  	$attrbs
+	 * @return string 	
+	 */ 
+	public static function attrb( $attrbs = [] ){
+
+		unset($attrbs['name']);
+		unset($attrbs['value']);
+
+		$added = "";
+		
+		if(count($attrbs)):
+
+			foreach ($attrbs as $attrb => $value):
+
+				$added .= $attrb . "='$value' ";
+
+			endforeach;
+
+		endif;
+
+		return $added;
+	
 	}
 
 
