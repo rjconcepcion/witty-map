@@ -18,7 +18,9 @@ class witty_map_backend
 
 	function __construct(){
 
-		add_action( 'admin_menu', [ $this, 'wittymap_func' ] );
+		add_action( 'init', 				'wp_enqueue_media' );
+		add_action( 'admin_menu', 			[ $this, 'wittymap_func' ] );
+		add_action( 'witty_map_after_form', [ $this, 'option_page_before_form' ] );
 		$this->load_supports();
 	}
 
@@ -60,8 +62,11 @@ class witty_map_backend
 	public function register_my_cool_plugin_settings() {
 
 		register_setting( 'witty-map-settings-group', 'googlemapapi_key' );
-		register_setting( 'witty-map-settings-group', 'map_location' );
-		register_setting( 'witty-map-settings-group', 'zoom_level' );
+		register_setting( 'witty-map-settings-group', 'wittymap_loc' );
+		register_setting( 'witty-map-settings-group', 'wittymap_def_zoom' );
+
+		register_setting( 'witty-map-settings-group', 'img-pointers' );
+		
 	}
 
 	/**
@@ -69,9 +74,24 @@ class witty_map_backend
 	 */
 	public function test1(){
 
+		do_settings_sections( 'witty-map-settings-group' );
+
 		$support = $this->support;
 
-		echo $support->witty_template( 'admin', 'test');
+		$support->witty_template( 'admin', 'witty-map-option-page', [
+			"googlemap_api"			=>	esc_attr( get_option('googlemapapi_key') ),
+			"wittymap_loc"			=>	get_option( 'wittymap_loc' ),
+			"wittymap_def_zoom"		=>	get_option( 'wittymap_def_zoom' ),
+		] );
+
+	}
+
+	/**
+	 * Setting field
+	 */
+	public function option_page_before_form(){
+
+		settings_fields( 'witty-map-settings-group' );
 	}
 
 }

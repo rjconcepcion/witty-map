@@ -2,8 +2,6 @@
 <h1>Witty Map</h1>
 
 <form method="post" action="options.php">
-    <?php settings_fields( 'witty-map-settings-group' ); ?>
-    <?php do_settings_sections( 'witty-map-settings-group' ); ?>
     <table class="form-table">
         <tr valign="top">
         <th scope="row">Google Map Api Key</th>

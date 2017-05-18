@@ -16,16 +16,9 @@
 		 */
 		init : function(){
 
-			map = new google.maps.Map(document.getElementById('witty-map-wrap'), {
-				zoom: 17,
-				draggable : false,
-				disableDoubleClickZoom : true,
-				zoomControl : false,
-				scrollwheel : false,
-				streetViewControl : false,
-			});
+			map = new google.maps.Map( document.getElementById('witty-map-wrap'), this.mapSettings() );
 
-			var location = {lat: 14.635800, lng: 121.094949};
+			var location = this.latlangFormater( wm.wittyMapLocation );
 
 	        map.setCenter( location );
 
@@ -41,6 +34,36 @@
 				animation: google.maps.Animation.DROP,
 			});
 
+		},
+
+		latlangFormater : function( rawLatLang ){
+
+			var latlng = rawLatLang.split(',');
+
+			if( latlng[0] == "" || latlng[1] == "" ){
+				document.getElementById("witty-map-wrap").innerHTML = "Hey Admin! Latitude and longitude, please fix!";
+			}
+
+			var formattedLatLang = {
+				lat : parseFloat(latlng[0]),
+				lng : parseFloat(latlng[1])
+			}
+			
+			return formattedLatLang;
+		},
+
+		mapSettings : function(){
+
+			var settings = {
+				zoom: parseInt(wm.wittyDefaultZoom),
+				draggable : false,
+				disableDoubleClickZoom : true,
+				zoomControl : false,
+				scrollwheel : false,
+				streetViewControl : false,
+			}
+
+			return settings;
 		}
 
 	}

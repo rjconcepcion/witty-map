@@ -16,22 +16,28 @@ class witty_map_public
 	 */
 	public $support;
 
+	public $gmap_api;
+
 	public function __construct(){
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 		$this->shortcodes();
 		$this->load_supports();
+		$this->gmap_api = esc_attr( get_option('googlemapapi_key') );
 	}
 
 	/**
 	 * Enqueue files
-	 * @return [type] [description]
 	 */
 	public function enqueue(){
 
 		wp_enqueue_style(	'witty-map', WITTY_DIR_URL . '/public/css/witty-map-base.css' );
-		wp_enqueue_script(	'googlemap-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAR-8XBC5oJFZL9aPbx1v7z1rq9_Ex3PQM', [], '', true );
-		wp_enqueue_script(	'googlemap', WITTY_DIR_URL . '/public/js/googlemap.js', [], '', true );
+		wp_enqueue_script(	'googlemap-api', 'https://maps.googleapis.com/maps/api/js?key=' . $this->gmap_api, [], '', true );
+		wp_enqueue_script(	'witty-map', WITTY_DIR_URL . '/public/js/googlemap.js', [], '', true );
+		wp_localize_script( 'witty-map', 'wm', [ 
+			'wittyMapLocation' => get_option('wittymap_loc'),
+			'wittyDefaultZoom' => get_option('wittymap_def_zoom') ? get_option('wittymap_def_zoom') : 5
+		] );
 		
 	}
 
