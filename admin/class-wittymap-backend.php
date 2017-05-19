@@ -21,6 +21,7 @@ class witty_map_backend
 		add_action( 'init', 				'wp_enqueue_media' );
 		add_action( 'admin_menu', 			[ $this, 'wittymap_func' ] );
 		add_action( 'witty_map_after_form', [ $this, 'option_page_before_form' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ]);
 		$this->load_supports();
 	}
 
@@ -32,6 +33,13 @@ class witty_map_backend
 		
 		require_once WITTY_DIR_INC . '/class-witty-support.php';
 		$this->support = new witty_support();
+	}
+
+	public function enqueue()
+	{
+
+		wp_enqueue_style( 'witty-map-admin', WITTY_DIR_URL . 'admin/css/witty-map-admin.css' );
+
 	}
 
 	/**

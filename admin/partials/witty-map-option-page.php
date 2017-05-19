@@ -54,6 +54,17 @@
 
             <tr valign="top">
                 <th scope="row">
+                    <label for="wittymap-center"><?php echo _x('Set Image as Marker','witty_map'); ?></label>
+                </th>
+                <td>
+                    <img class="header_logo" src="<?php echo get_option('header_logo'); ?>" height="75" width="75"/>
+                    <button>BROWSE IMAGE</button>
+                </td>
+            </tr>
+
+
+            <tr valign="top">
+                <th scope="row">
                     <label for="wittymap-center"><?php echo _x('Default Map Zoom','witty_map'); ?></label>
                 </th>
                 <td>
