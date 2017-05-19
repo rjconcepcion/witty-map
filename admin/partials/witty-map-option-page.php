@@ -22,10 +22,11 @@
                 </th>
                 <td>
                     <?php 
-                        $support->witty_template( 'inc', 'witty-field-text', [ 
-                            'name'  => 'googlemapapi_key', 
-                            'value' => $googlemap_api, 
-                            'attrb' => [
+                        $support->witty_template( 'inc', 'witty-field-common', [ 
+                            'type'  =>  'text',
+                            'name'  =>  'googlemapapi_key',
+                            'value' =>  $googlemap_api, 
+                            'attrb' =>  [
                                 'id'    =>  'googlemapapi-key',
                                 'class' =>  'regular-text'
                             ],
@@ -40,10 +41,11 @@
                 </th>
                 <td>
                     <?php 
-                        $support->witty_template( 'inc', 'witty-field-text', [ 
-                            'name'  => 'wittymap_loc', 
-                            'value' => $wittymap_loc, 
-                            'attrb' => [
+                        $support->witty_template( 'inc', 'witty-field-common', [ 
+                            'type'  =>  'text',  
+                            'name'  =>  'wittymap_loc',
+                            'value' =>  $wittymap_loc, 
+                            'attrb' =>  [
                                 'id'    =>  'wittymap-center',
                                 'class' =>  'regular-text'
                             ],
@@ -58,10 +60,11 @@
                 </th>
                 <td>
                     <?php 
-                        $support->witty_template( 'inc', 'witty-field-num', [ 
-                            'name'  => 'wittymap_def_zoom', 
-                            'value' => $wittymap_def_zoom, 
-                            'attrb' => [
+                        $support->witty_template( 'inc', 'witty-field-common', [ 
+                            'type'  =>  'number',
+                            'name'  =>  'wittymap_def_zoom',
+                            'value' =>  $wittymap_def_zoom, 
+                            'attrb' =>  [
                                 'id'    =>  'wittymap-center',
                                 'class' =>  'regular-text'
                             ],
@@ -69,6 +72,31 @@
                     ?>
                 </td>
             </tr>
+
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wittymap-center"><?php echo _x('Map Pointer','witty_map'); ?></label>
+                </th>
+                <td>
+                    <div id="witty-pointer-wrap">
+                        <img src="<?php echo $wittymap_marker; ?>">
+                        <button data-what='set-marker'>SELECT IMAGE</button>
+                        <?php 
+
+                        $support->witty_template( 'inc', 'witty-field-common', [ 
+                            'type'  =>  'hidden',
+                            'name'  =>  'wittymap_marker',
+                            'value' =>  $wittymap_marker
+                        ] );
+
+
+                        ?>
+                        <a href="#" class="litle-close" data-what='remove-marker'>x</a>                   
+                    </div>
+                </td>
+            </tr>
+
+
 
         </table>
 

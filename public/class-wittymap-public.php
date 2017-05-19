@@ -36,7 +36,8 @@ class witty_map_public
 		wp_enqueue_script(	'witty-map', WITTY_DIR_URL . '/public/js/googlemap.js', [], '', true );
 		wp_localize_script( 'witty-map', 'wm', [ 
 			'wittyMapLocation' => get_option('wittymap_loc'),
-			'wittyDefaultZoom' => get_option('wittymap_def_zoom') ? get_option('wittymap_def_zoom') : 5
+			'wittyDefaultZoom' => get_option('wittymap_def_zoom') ? get_option('wittymap_def_zoom') : 5,
+			'wittyMapMarker'   => get_option( 'wittymap_marker' ),
 		] );
 		
 	}

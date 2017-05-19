@@ -32,6 +32,7 @@
 				position: latlng,
 				map: map,
 				animation: google.maps.Animation.DROP,
+				icon : wm.wittyMapMarker,
 			});
 
 		},
