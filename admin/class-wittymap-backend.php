@@ -19,10 +19,24 @@ class witty_map_backend
 	function __construct(){
 
 		add_action( 'init', 				'wp_enqueue_media' );
+		add_action( 'init',					[ $this, 'image_size' ] );		
 		add_action( 'admin_menu', 			[ $this, 'wittymap_func' ] );
-		add_action( 'witty_map_after_form', [ $this, 'option_page_before_form' ] );
+		add_action( 'witty_map_after_form',	[ $this, 'option_page_before_form' ] );
+		add_action( 'admin_enqueue_scripts',[ $this, 'enqueue' ] );
+
 		$this->load_supports();
 	}
+
+	/**
+	 * Enqueue admin css and js
+	 * @return void
+	 */
+	public function enqueue(){
+
+		wp_enqueue_style(	'witty-map-admin', WITTY_DIR_URL . '/admin/css/witty-map-admin.css' );
+		wp_enqueue_script(	'witty-map-admin', WITTY_DIR_URL . '/admin/js/witty-map-settings.js', [], '', true );
+	}
+
 
 	/**
 	 * Helper 
@@ -64,9 +78,8 @@ class witty_map_backend
 		register_setting( 'witty-map-settings-group', 'googlemapapi_key' );
 		register_setting( 'witty-map-settings-group', 'wittymap_loc' );
 		register_setting( 'witty-map-settings-group', 'wittymap_def_zoom' );
-
-		register_setting( 'witty-map-settings-group', 'img-pointers' );
-		
+		register_setting( 'witty-map-settings-group', 'wittymap_marker' );
+	
 	}
 
 	/**
@@ -82,6 +95,7 @@ class witty_map_backend
 			"googlemap_api"			=>	esc_attr( get_option('googlemapapi_key') ),
 			"wittymap_loc"			=>	get_option( 'wittymap_loc' ),
 			"wittymap_def_zoom"		=>	get_option( 'wittymap_def_zoom' ),
+			"wittymap_marker"		=>	get_option( 'wittymap_marker' ),
 		] );
 
 	}
@@ -92,6 +106,12 @@ class witty_map_backend
 	public function option_page_before_form(){
 
 		settings_fields( 'witty-map-settings-group' );
+	}
+
+
+	public function image_size(){
+
+		add_image_size( 'witty-map-thumb', 100, 100, false );
 	}
 
 }
