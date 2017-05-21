@@ -11,6 +11,18 @@ Donate link:
 Witty Map, add google map in content area or in template file (using shortcode). Most important you can customize its view.
 
 
+## Witty Map has following features 
+
+*	Set center of the map.
+*	Set Zoom level.
+*	Modify default map pointer/marker.
+*	Enable / Disble dragging.
+*	Enable / Disable zoom and center on double click.
+*	Enable / Disable zoom control.
+*	Enable / Disable Scroll wheel.
+*	Enable / Disable street view control.
+
+
 ## Frequently Asked Questions 
 
 
@@ -22,3 +34,10 @@ Witty Map, add google map in content area or in template file (using shortcode).
 ### How to echo map in code 
 
 echo do_shortcode('[googleMap]');
+
+
+### List of witty map action 
+
+add( 'witty_map_before', [your function] );
+
+add( 'witty_map_after', [your function] );
