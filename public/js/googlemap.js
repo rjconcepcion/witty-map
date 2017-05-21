@@ -1,5 +1,10 @@
 /**
  * Google Map Function
+ *
+ * Renders map in the front end.
+ * 
+ * @author Robert John conecpcion
+ * @version 1
  */
 (function(){
 
@@ -26,6 +31,11 @@
 
 		},
 
+		/**
+		 * Marker of witty map
+		 * @param  {[type]} latlng [description]
+		 * @return {[type]}        [description]
+		 */
 		plotMarker : function( latlng ){
 
 			marker = new google.maps.Marker({
@@ -37,6 +47,11 @@
 
 		},
 
+		/**
+		 * Formats string for to obj
+		 * @param  string rawLatLang
+		 * @return object
+		 */
 		latlangFormater : function( rawLatLang ){
 
 			var latlng = rawLatLang.split(',');
@@ -59,12 +74,12 @@
 		mapSettings : function(){
 
 			var settings = {
-				zoom: parseInt(wm.wittyDefaultZoom),
-				draggable : parseInt(wm.wittyMapDraggable) ? true : false,
-				disableDoubleClickZoom : parseInt(wm.wittyDoubleClickZoom) ? false : true,
-				zoomControl : parseInt(wm.wittyMapZoomCtrl) ? true : false,
-				scrollwheel : parseInt(wm.wittyMapScrollWheel) ? true : false,
-				streetViewControl : parseInt(wm.wittyMapStreetView) ? true : false,
+				zoom 					: parseInt(wm.wittyDefaultZoom),
+				draggable 				: parseInt(wm.wittyMapDraggable) ? true : false,
+				disableDoubleClickZoom  : parseInt(wm.wittyDoubleClickZoom) ? false : true,
+				zoomControl 			: parseInt(wm.wittyMapZoomCtrl) ? true : false,
+				scrollwheel 			: parseInt(wm.wittyMapScrollWheel) ? true : false,
+				streetViewControl 		: parseInt(wm.wittyMapStreetView) ? true : false,
 			}
 
 			return settings;
