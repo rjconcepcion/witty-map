@@ -65,7 +65,6 @@ class witty_map_public
 		$shortcodes = [
 			'witty-map' => [ $this, 'witty_map_render' ]
 		];
-
 		foreach ($shortcodes as $shortcode => $func):
 			add_shortcode( $shortcode, $func );
 		endforeach;
@@ -78,7 +77,9 @@ class witty_map_public
 	public function witty_map_render(){
 
 		$support = $this->support;
-		return $this->support->witty_template( 'public', 'witty-map-wrap', [], false );
+		do_action( 'witty_map_before' );
+		return $support->witty_template( 'public', 'witty-map-wrap', [], false );
+		do_action( 'witty_map_after' );
 	}
 
 }

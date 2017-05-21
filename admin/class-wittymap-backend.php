@@ -96,7 +96,7 @@ class witty_map_backend
 	/**
 	 * Option page field declaration
 	 */
-	private function _opt_list(){
+	private function _opt_list(){		
 
 		return [
 			'googlemapapi_key'			=> [
@@ -123,7 +123,7 @@ class witty_map_backend
 				'template_name' =>	"witty-field-common",
 				'type'			=>	"number",
                 'label'			=>	"Default Map Zoom",
-                'desc'			=>	"Zoom level of the map (the bigger the number the zoom it be). <b>max value : 18</b>",
+                'desc'			=>	"Zoom level of the map (the bigger the number the zoom it be). <b>default value : 5, max value : 18</b>",
                 'attrb' =>  [
                     'id'    =>  'wittymap-center',
                     'class' =>  'regular-text'
