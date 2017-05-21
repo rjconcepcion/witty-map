@@ -5,7 +5,7 @@ Plugin URI:
 Description: Witty Map, add google map in content 																	area or in template file (using shortcode). Most important you can 																customize its view.
 Version:     1
 Author:      Robert John Concepcion
-Author URI:  https://www.facebook.com/robertjohn.concepcion
+Author URI:  https://github.com/robert-john-concepcion
 Text Domain: wporg
 Domain Path: /languages
 License:     GPL2
