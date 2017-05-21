@@ -64,7 +64,7 @@
 				disableDoubleClickZoom : parseInt(wm.wittyDoubleClickZoom) ? false : true,
 				zoomControl : parseInt(wm.wittyMapZoomCtrl) ? true : false,
 				scrollwheel : parseInt(wm.wittyMapScrollWheel) ? true : false,
-				streetViewControl : false,
+				streetViewControl : parseInt(wm.wittyMapStreetView) ? true : false,
 			}
 
 			return settings;

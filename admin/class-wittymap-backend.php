@@ -81,6 +81,7 @@ class witty_map_backend
 		register_setting( 'witty-map-settings-group', 'wittymap_doubleClickZoom' );
 		register_setting( 'witty-map-settings-group', 'wittymap_zoomControl' );
 		register_setting( 'witty-map-settings-group', 'wittymap_scrollWheel' );
+		register_setting( 'witty-map-settings-group', 'wittymap_streetView' );
 	
 	}
 
@@ -102,6 +103,7 @@ class witty_map_backend
 			"wittymap_doubleClickZoom"	=>	get_option( 'wittymap_doubleClickZoom' ),
 			"wittymap_zoomControl"	=>	get_option( 'wittymap_zoomControl' ),
 			"wittymap_scrollWheel"	=>	get_option( 'wittymap_scrollWheel' ),
+			"wittymap_streetView"	=>	get_option( 'wittymap_streetView' ),
 		] );
 
 	}

@@ -42,6 +42,7 @@ class witty_map_public
 			'wittyDoubleClickZoom'=> get_option( 'wittymap_doubleClickZoom' ),
 			'wittyMapZoomCtrl'=> get_option( 'wittymap_zoomControl' ),
 			'wittyMapScrollWheel'=> get_option( 'wittymap_scrollWheel' ),
+			'wittyMapStreetView'=> get_option( 'wittymap_streetView' ),
 		] );
 		
 	}

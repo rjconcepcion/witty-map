@@ -162,6 +162,23 @@
             </tr>            
 
 
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wittymap-center"><?php echo _x('Street View Control','witty_map'); ?></label>
+                </th>
+                <td>
+                    <?php 
+
+                    $support->witty_template( 'inc', 'witty-field-checkbox', [ 
+                        'name'  =>  'wittymap_streetView',
+                        'value' =>  $wittymap_streetView
+                    ] );
+
+                    ?> 
+                </td>
+            </tr>  
+
+
         </table>
 
 
