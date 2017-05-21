@@ -2,9 +2,9 @@
  * Google Map Function
  *
  * Renders map in the front end.
- * 
- * @author Robert John conecpcion
+ *
  * @version 1
+ * @author Robert John conecpcion
  */
 (function(){
 

@@ -1,5 +1,4 @@
 <?php 
-
 /**
  * Witty plugin base support
  *
@@ -10,6 +9,18 @@
  */
 class witty_support
 {
+
+	public function __construct(){
+
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
+	}
+
+	public function enqueue(){
+		/**
+		 * Witty map button and etc default style
+		 */
+		wp_enqueue_style(	'witty-map', WITTY_DIR_URL . '/inc/css/witty-map-support.css' );
+	}
 
 	/**
 	 * WITTY TEMPLATING FUNCTION
@@ -71,7 +82,6 @@ class witty_support
 		endif;
 
 		return $added;
-	
 	}
 
 

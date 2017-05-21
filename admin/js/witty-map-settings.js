@@ -1,5 +1,10 @@
 /**
- * Google Map Function
+ * Witty Map Settings
+ *
+ * Witty Map Marker selecting function
+ *
+ * @version 1
+ * @author Robert John Concepcion
  */
 (function($){
 
@@ -17,6 +22,9 @@
 
 		},
 
+		/**
+		 * Open wordpress media
+		 */
 		openMedia : function( e ){
 
 			e.preventDefault();
@@ -36,9 +44,11 @@
             });
 
             frame.open();
-
 		},
 
+		/**
+		 * Set image in marker field and hidden field
+		 */
 		selectImage : function(){
 
 			var attachment = frame.state().get('selection').first().toJSON();
@@ -50,19 +60,18 @@
 			$("#witty-pointer-wrap img").attr( "src", imageUrl );
 
 			$("#witty-pointer-wrap [type='hidden']").val(imageUrl);
-
 		},
 
+		/**
+		 * Remove selected marker
+		 */
 		removeImage : function(e){
 
 			e.preventDefault();
-
 			$( this ).fadeOut(function(){
 				$( this ).parent().find( 'img' ).attr( 'src', '' );
 				$( this ).parent().find( '[type="hidden"]' ).val("");
 			});
-
-
 		},
 
 		_registerEvents : function(){
@@ -75,6 +84,5 @@
 	}
 
 	wittyAdmin.init();
-
 
 })(jQuery);		

@@ -82,7 +82,6 @@ class witty_map_backend
 		register_setting( 'witty-map-settings-group', 'wittymap_zoomControl' );
 		register_setting( 'witty-map-settings-group', 'wittymap_scrollWheel' );
 		register_setting( 'witty-map-settings-group', 'wittymap_streetView' );
-	
 	}
 
 	/**
@@ -105,7 +104,6 @@ class witty_map_backend
 			"wittymap_scrollWheel"	=>	get_option( 'wittymap_scrollWheel' ),
 			"wittymap_streetView"	=>	get_option( 'wittymap_streetView' ),
 		] );
-
 	}
 
 	/**
@@ -116,7 +114,9 @@ class witty_map_backend
 		settings_fields( 'witty-map-settings-group' );
 	}
 
-
+	/**
+	 * Witty Map Marker Default Size
+	 */
 	public function image_size(){
 
 		add_image_size( 'witty-map-thumb', 100, 100, false );

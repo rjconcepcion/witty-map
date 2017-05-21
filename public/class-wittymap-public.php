@@ -44,7 +44,6 @@ class witty_map_public
 			'wittyMapScrollWheel'=> get_option( 'wittymap_scrollWheel' ),
 			'wittyMapStreetView'=> get_option( 'wittymap_streetView' ),
 		] );
-		
 	}
 
 	/**
@@ -55,7 +54,6 @@ class witty_map_public
 		
 		require_once WITTY_DIR_INC . '/class-witty-support.php';
 		$this->support = new witty_support();
-	
 	}
 
 	/**
@@ -69,11 +67,8 @@ class witty_map_public
 		];
 
 		foreach ($shortcodes as $shortcode => $func):
-
 			add_shortcode( $shortcode, $func );
-
 		endforeach;
-		
 	}
 
 	/**
@@ -83,12 +78,8 @@ class witty_map_public
 	public function witty_map_render(){
 
 		$support = $this->support;
-
 		return $this->support->witty_template( 'public', 'witty-map-wrap', [], false );
-
 	}
-
-
 
 }
 new witty_map_public();

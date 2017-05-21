@@ -1,9 +1,9 @@
 <?php
 /**
  * The common field of witty plugin
- * 
+ *
+ * @version 1
  * @author Robert John Concepcion
- * @defaultType text
  */
 ?>
 <input

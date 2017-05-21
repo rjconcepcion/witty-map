@@ -2,7 +2,8 @@
 /**
  * The checkbox of witty plugin
  * requires input type hidden for default value
- * 
+ *
+ * @version 1
  * @author Robert John Concepcion
  */
  ?>

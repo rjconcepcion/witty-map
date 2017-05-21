@@ -80,7 +80,7 @@
                 <td>
                     <div id="witty-pointer-wrap">
                         <img src="<?php echo $wittymap_marker; ?>">
-                        <button data-what='set-marker'>SELECT IMAGE</button>
+                        <button class="witty-btn" data-what='set-marker'>SELECT IMAGE</button>
                         <?php 
 
                         $support->witty_template( 'inc', 'witty-field-common', [ 
@@ -90,7 +90,7 @@
                         ] );
 
                         ?>
-                        <a href="#" class="litle-close" data-what='remove-marker'>x</a>                   
+                        <a href="#" class="witty-close" data-what='remove-marker'>x</a>                   
                     </div>
                 </td>
             </tr>
