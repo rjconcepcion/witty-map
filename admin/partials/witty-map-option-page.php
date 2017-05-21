@@ -19,6 +19,16 @@
         do_action( "witty_map_after_form" );
         ?>
         <table class="form-table">
+            <tr valign="top">
+                <th scope="row">
+                    <label>Short code</label>
+                </th>
+                <td>
+                    <code>[witty-map]</code>
+                     <p class="description">Use <code>[witty-map]</code> in content area and <code>echo do_shortcode("[witty-map]");</code> in your code.</p>
+                </td>
+
+            </tr>        
             <?php 
                 foreach ($opt_arr as $key => $opt_val):
                     $support->witty_template( 'admin', 'witty-map-option-fields', [

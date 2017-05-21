@@ -24,6 +24,8 @@ class witty_map_public
 		$this->shortcodes();
 		$this->load_supports();
 		$this->gmap_api = esc_attr( get_option('googlemapapi_key') );
+		if( empty( $this->gmap_api ) )
+			add_action( 'admin_notices', [ $this, 'api_key_detection_func' ] );		
 	}
 
 	/**
@@ -81,6 +83,13 @@ class witty_map_public
 		return $support->witty_template( 'public', 'witty-map-wrap', [], false );
 		do_action( 'witty_map_after' );
 	}
+
+	/**
+	 * Admin notice if no googlemap api key is set.
+	 */
+	public function api_key_detection_func(){
+		$this->support->witty_template( 'admin', 'witty-map-notice-err' );
+	}	
 
 }
 new witty_map_public();
