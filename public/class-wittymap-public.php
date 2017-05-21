@@ -41,6 +41,7 @@ class witty_map_public
 			'wittyMapDraggable'=> get_option( 'wittymap_draggable' ),
 			'wittyDoubleClickZoom'=> get_option( 'wittymap_doubleClickZoom' ),
 			'wittyMapZoomCtrl'=> get_option( 'wittymap_zoomControl' ),
+			'wittyMapScrollWheel'=> get_option( 'wittymap_scrollWheel' ),
 		] );
 		
 	}

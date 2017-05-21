@@ -63,7 +63,7 @@
 				draggable : parseInt(wm.wittyMapDraggable) ? true : false,
 				disableDoubleClickZoom : parseInt(wm.wittyDoubleClickZoom) ? false : true,
 				zoomControl : parseInt(wm.wittyMapZoomCtrl) ? true : false,
-				scrollwheel : false,
+				scrollwheel : parseInt(wm.wittyMapScrollWheel) ? true : false,
 				streetViewControl : false,
 			}
 

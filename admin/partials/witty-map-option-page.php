@@ -144,6 +144,24 @@
             </tr>
 
 
+
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wittymap-center"><?php echo _x('Scroll Wheel','witty_map'); ?></label>
+                </th>
+                <td>
+                    <?php 
+
+                    $support->witty_template( 'inc', 'witty-field-checkbox', [ 
+                        'name'  =>  'wittymap_scrollWheel',
+                        'value' =>  $wittymap_scrollWheel
+                    ] );
+
+                    ?> 
+                </td>
+            </tr>            
+
+
         </table>
 
 

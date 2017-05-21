@@ -57,6 +57,7 @@ if( !class_exists('witty_map') )
 			update_option( 'wittymap_draggable', 1 );
 			update_option( 'wittymap_doubleClickZoom', 1 );
 			update_option( 'wittymap_zoomControl', 1 );
+			update_option( 'wittymap_scrollWheel', 1 );
 
 		}
 
