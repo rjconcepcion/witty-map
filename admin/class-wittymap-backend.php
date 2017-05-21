@@ -59,7 +59,7 @@ class witty_map_backend
 			'witty-map-settings',
 			[ $this, 'settings' ],
 			'dashicons-flag',
-			8
+			100
 		);
 
 		/**
