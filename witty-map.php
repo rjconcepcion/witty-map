@@ -47,12 +47,12 @@ if( !class_exists('witty_map') )
 		{
 			$this->defined_constant();
 			$this->includes();
-
 		}
 
 		public static function install() {
-
 		
+			update_option( 'wittymap_draggable', 1 );
+
 		}
 
 		/**
@@ -62,7 +62,7 @@ if( !class_exists('witty_map') )
 
 			$this->define( 'WITTY_DIR', dirname( __FILE__ ) );
 			$this->define( 'WITTY_DIR_INC', dirname( __FILE__ )."/inc" );
-			$this->define( 'WITTY_DIR_URL', plugin_dir_url( dirname(__FILE__) ) . 'witty-map/' );
+			$this->define( 'WITTY_DIR_URL', plugin_dir_url( dirname(__FILE__) ) . basename(__DIR__) );
 
 		}
 

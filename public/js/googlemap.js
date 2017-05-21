@@ -32,6 +32,7 @@
 				position: latlng,
 				map: map,
 				animation: google.maps.Animation.DROP,
+				icon : wm.wittyMapMarker,
 			});
 
 		},
@@ -40,8 +41,11 @@
 
 			var latlng = rawLatLang.split(',');
 
-			if( latlng[0] == "" || latlng[1] == "" ){
-				document.getElementById("witty-map-wrap").innerHTML = "Hey Admin! Latitude and longitude, please fix!";
+			if(	latlng[0] == "" ||
+				latlng[1] == "" || 
+				latlng.length != 2)
+			{
+				document.getElementById("witty-map-wrap").innerHTML = "Hey Admin! Invalid latitude and longitude, please fix!";
 			}
 
 			var formattedLatLang = {
@@ -56,7 +60,7 @@
 
 			var settings = {
 				zoom: parseInt(wm.wittyDefaultZoom),
-				draggable : false,
+				draggable : parseInt(wm.wittyMapDraggable) ? true : false,
 				disableDoubleClickZoom : true,
 				zoomControl : false,
 				scrollwheel : false,
