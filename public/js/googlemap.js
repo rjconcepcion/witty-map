@@ -33,8 +33,6 @@
 
 		/**
 		 * Marker of witty map
-		 * @param  {[type]} latlng [description]
-		 * @return {[type]}        [description]
 		 */
 		plotMarker : function( latlng ){
 
