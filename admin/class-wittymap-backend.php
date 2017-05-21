@@ -78,6 +78,8 @@ class witty_map_backend
 		register_setting( 'witty-map-settings-group', 'wittymap_def_zoom' );
 		register_setting( 'witty-map-settings-group', 'wittymap_marker' );
 		register_setting( 'witty-map-settings-group', 'wittymap_draggable' );
+		register_setting( 'witty-map-settings-group', 'wittymap_doubleClickZoom' );
+		register_setting( 'witty-map-settings-group', 'wittymap_zoomControl' );
 	
 	}
 
@@ -96,6 +98,8 @@ class witty_map_backend
 			"wittymap_def_zoom"		=>	get_option( 'wittymap_def_zoom' ),
 			"wittymap_marker"		=>	get_option( 'wittymap_marker' ),
 			"wittymap_draggable"	=>	get_option( 'wittymap_draggable' ),
+			"wittymap_doubleClickZoom"	=>	get_option( 'wittymap_doubleClickZoom' ),
+			"wittymap_zoomControl"	=>	get_option( 'wittymap_zoomControl' ),
 		] );
 
 	}

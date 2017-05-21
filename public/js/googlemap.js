@@ -61,8 +61,8 @@
 			var settings = {
 				zoom: parseInt(wm.wittyDefaultZoom),
 				draggable : parseInt(wm.wittyMapDraggable) ? true : false,
-				disableDoubleClickZoom : true,
-				zoomControl : false,
+				disableDoubleClickZoom : parseInt(wm.wittyDoubleClickZoom) ? false : true,
+				zoomControl : parseInt(wm.wittyMapZoomCtrl) ? true : false,
 				scrollwheel : false,
 				streetViewControl : false,
 			}

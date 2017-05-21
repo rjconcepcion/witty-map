@@ -111,6 +111,39 @@
                 </td>
             </tr>
 
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wittymap-center"><?php echo _x('Double click will zoom','witty_map'); ?></label>
+                </th>
+                <td>
+                    <?php 
+
+                    $support->witty_template( 'inc', 'witty-field-checkbox', [ 
+                        'name'  =>  'wittymap_doubleClickZoom',
+                        'value' =>  $wittymap_doubleClickZoom
+                    ] );
+
+                    ?> 
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">
+                    <label for="wittymap-center"><?php echo _x('Zoom Control','witty_map'); ?></label>
+                </th>
+                <td>
+                    <?php 
+
+                    $support->witty_template( 'inc', 'witty-field-checkbox', [ 
+                        'name'  =>  'wittymap_zoomControl',
+                        'value' =>  $wittymap_zoomControl
+                    ] );
+
+                    ?> 
+                </td>
+            </tr>
+
+
         </table>
 
 

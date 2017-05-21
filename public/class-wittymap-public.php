@@ -39,6 +39,8 @@ class witty_map_public
 			'wittyDefaultZoom' => get_option('wittymap_def_zoom') ? get_option('wittymap_def_zoom') : 5,
 			'wittyMapMarker'   => get_option( 'wittymap_marker' ), 
 			'wittyMapDraggable'=> get_option( 'wittymap_draggable' ),
+			'wittyDoubleClickZoom'=> get_option( 'wittymap_doubleClickZoom' ),
+			'wittyMapZoomCtrl'=> get_option( 'wittymap_zoomControl' ),
 		] );
 		
 	}

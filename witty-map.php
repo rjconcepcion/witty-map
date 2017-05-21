@@ -49,9 +49,14 @@ if( !class_exists('witty_map') )
 			$this->includes();
 		}
 
+		/**
+		 * set some initial value in witty map option page
+		 */
 		public static function install() {
 		
 			update_option( 'wittymap_draggable', 1 );
+			update_option( 'wittymap_doubleClickZoom', 1 );
+			update_option( 'wittymap_zoomControl', 1 );
 
 		}
 
