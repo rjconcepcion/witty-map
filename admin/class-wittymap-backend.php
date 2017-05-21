@@ -57,7 +57,7 @@ class witty_map_backend
 			'Witty Map',
 			'manage_options',
 			'witty-map-settings',
-			[ $this, 'test1' ],
+			[ $this, 'settings' ],
 			'dashicons-flag',
 			8
 		);
@@ -73,37 +73,42 @@ class witty_map_backend
 	 */
 	public function register_options() {
 
-		register_setting( 'witty-map-settings-group', 'googlemapapi_key' );
-		register_setting( 'witty-map-settings-group', 'wittymap_loc' );
-		register_setting( 'witty-map-settings-group', 'wittymap_def_zoom' );
-		register_setting( 'witty-map-settings-group', 'wittymap_marker' );
-		register_setting( 'witty-map-settings-group', 'wittymap_draggable' );
-		register_setting( 'witty-map-settings-group', 'wittymap_doubleClickZoom' );
-		register_setting( 'witty-map-settings-group', 'wittymap_zoomControl' );
-		register_setting( 'witty-map-settings-group', 'wittymap_scrollWheel' );
-		register_setting( 'witty-map-settings-group', 'wittymap_streetView' );
+		foreach (self::_opt_list() as $opt_key):
+			register_setting( 'witty-map-settings-group', $opt_key );
+		endforeach;
 	}
 
 	/**
 	 * Option Page Form
 	 */
-	public function test1(){
+	public function settings(){
+		$support = $this->support;
 
 		do_settings_sections( 'witty-map-settings-group' );
 
-		$support = $this->support;
+		$key_value = [];
+		foreach (self::_opt_list() as $opt_key):
+			$key_value[ $opt_key ] = esc_attr( get_option( $opt_key ) );
+		endforeach;
+		$support->witty_template( 'admin', 'witty-map-option-page', $key_value );
+	}
 
-		$support->witty_template( 'admin', 'witty-map-option-page', [
-			"googlemap_api"			=>	esc_attr( get_option('googlemapapi_key') ),
-			"wittymap_loc"			=>	get_option( 'wittymap_loc' ),
-			"wittymap_def_zoom"		=>	get_option( 'wittymap_def_zoom' ),
-			"wittymap_marker"		=>	get_option( 'wittymap_marker' ),
-			"wittymap_draggable"	=>	get_option( 'wittymap_draggable' ),
-			"wittymap_doubleClickZoom"	=>	get_option( 'wittymap_doubleClickZoom' ),
-			"wittymap_zoomControl"	=>	get_option( 'wittymap_zoomControl' ),
-			"wittymap_scrollWheel"	=>	get_option( 'wittymap_scrollWheel' ),
-			"wittymap_streetView"	=>	get_option( 'wittymap_streetView' ),
-		] );
+	/**
+	 * option keys
+	 */
+	private function _opt_list(){
+
+		return [
+			'googlemapapi_key',
+			'wittymap_loc',
+			'wittymap_def_zoom',
+			'wittymap_marker',
+			'wittymap_draggable',
+			'wittymap_doubleClickZoom',
+			'wittymap_zoomControl',
+			'wittymap_scrollWheel',
+			'wittymap_streetView',
+		];
 	}
 
 	/**
