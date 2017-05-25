@@ -85,4 +85,46 @@
 
 	wittyAdmin.init();
 
+	var wittyAdmin = {
+
+		init : function(){
+
+			this._registerEvents();
+
+		},
+
+
+		tabSelector : function( e ){
+
+			e.preventDefault();
+
+			var ths = $( this );
+
+			var wittyTabsVal = $( this ).attr( 'href' );
+
+			$( ".witty-tabs-cont" ).hide();
+
+			$( "#witty-map-tabs a" ).not( this ).removeClass( 'active' );
+
+
+			
+			$( wittyTabsVal ).show( 0, function(){
+				ths.addClass( "active" );
+			});
+
+		},
+
+		_registerEvents : function(){
+
+			$( document ).on( 'click', '#witty-map-tabs a', this.tabSelector );
+
+
+		}
+
+
+	}
+
+	wittyAdmin.init();
+
+
 })(jQuery);		
