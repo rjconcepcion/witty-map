@@ -62,6 +62,14 @@ class witty_map_backend
 			100
 		);
 
+    add_meta_box(	'transaction_metabox',				//metabox slug
+    				'Set as Featured Post in Home',		//metabox title
+    				'set_as_featured',					//callback function
+    				'witty-map-settings',					//custom post type
+    				'side',								//position
+    				'default');		
+
+
 		/**
 		 * Will not continue if admin menu was not successfully create
 		 */
@@ -86,12 +94,37 @@ class witty_map_backend
 
 		do_settings_sections( 'witty-map-settings-group' );
 
-		$key_value = self::_opt_list();
-		foreach ($key_value as $opt_key => $opt_arry):
-			$key_value[ $opt_key ]['value'] = esc_attr( get_option( $opt_key ) );
+		// $key_value = self::_opt_list();
+		// foreach ($key_value as $opt_key => $opt_arry):
+		// 	$key_value[ $opt_key ]['value'] = esc_attr( get_option( $opt_key ) );
+		// endforeach;
+		
+
+		$opt_keys = self::_opt_keys();
+		$opt_keys_values = [];
+		foreach ($opt_keys as $opt_key):
+			$opt_keys_values[$opt_key] = esc_attr( get_option( $opt_key ) );
 		endforeach;
-		$support->witty_template( 'admin', 'witty-map-option-page', [ 'opt_arr' => $key_value ] );
+
+
+		$support->witty_template( 'admin', 'witty-map-option-page', $opt_keys_values );
 	}
+
+	private function _opt_keys(){
+
+		return [
+			'googlemapapi_key',
+			'wittymap_loc',
+			'wittymap_def_zoom',
+			'wittymap_marker',
+			'wittymap_draggable',
+			'wittymap_doubleClickZoom',
+			'wittymap_zoomControl',
+			'wittymap_scrollWheel',
+			'wittymap_streetView',
+		];
+	}
+
 
 	/**
 	 * Option page field declaration
@@ -113,7 +146,7 @@ class witty_map_backend
 				'template_name' =>	"witty-field-common",
 				'type'			=>	"text",
                 'label'			=>	"Map Center",
-                'desc'			=>	"Set Center of the map.",
+                'desc'			=>	"Set Center of the map. Must be a valid longitude and latitude from google map, format : <b>longitude, latitude</b>",
                 'attrb' =>  [
                     'id'    =>  'wittymap-center',
                     'class' =>  'regular-text'
