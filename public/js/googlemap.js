@@ -3,7 +3,7 @@
  *
  * Renders map in the front end.
  *
- * @version 1
+ * @version 1.01
  * @author Robert John conecpcion
  */
 (function(){
@@ -28,21 +28,22 @@
 	        map.setCenter( location );
 
 	        this.plotMarker( location );
-
 		},
 
 		/**
 		 * Marker of witty map
 		 */
-		plotMarker : function( latlng ){
+		plotMarker : function(latlng){
 
-			marker = new google.maps.Marker({
+			marker = new MarkerWithLabel({
 				position: latlng,
 				map: map,
-				animation: google.maps.Animation.DROP,
 				icon : wm.wittyMapMarker,
+				animation: google.maps.Animation.DROP,
+				// labelContent: "Meycauayan College",
+				// labelAnchor: new google.maps.Point(80, -10),
+				// labelClass: "witty-label",
 			});
-
 		},
 
 		/**
