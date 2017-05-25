@@ -28,13 +28,14 @@ class witty_map_public
 			add_action( 'admin_notices', [ $this, 'api_key_detection_func' ] );		
 	}
 
-	/**
+	/**markerwithlabel.js
 	 * Enqueue files
 	 */
 	public function enqueue(){
 
 		wp_enqueue_style(	'witty-map', WITTY_DIR_URL . '/public/css/witty-map-base.css' );
 		wp_enqueue_script(	'googlemap-api', 'https://maps.googleapis.com/maps/api/js?key=' . $this->gmap_api, [], '', true );
+		wp_enqueue_script(	'markerwithlabel', WITTY_DIR_URL . '/public/js/markerwithlabel.js', [], '', true );
 		wp_enqueue_script(	'witty-map', WITTY_DIR_URL . '/public/js/googlemap.js', [], '', true );
 		wp_localize_script( 'witty-map', 'wm', [ 
 			'wittyMapLocation' => get_option('wittymap_loc'),
