@@ -3,7 +3,7 @@
 Plugin Name: Witty Map
 Plugin URI:  
 Description: Witty Map, add google map in content 																	area or in template file (using shortcode). Most important you can 																customize its view.
-Version:     1
+Version:     1.0.1
 Author:      Robert John Concepcion
 Author URI:  https://github.com/robert-john-concepcion
 Text Domain: wporg
@@ -58,6 +58,8 @@ if( !class_exists('witty_map') )
 			update_option( 'wittymap_zoomControl', 1 );
 			update_option( 'wittymap_scrollWheel', 1 );
 			update_option( 'wittymap_streetView', 1 );
+			update_option( 'wittymap_labelX', 0 );
+			update_option( 'wittymap_labelY', 0 );			
 			
 		}
 
