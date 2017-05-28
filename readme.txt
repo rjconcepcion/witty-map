@@ -34,12 +34,7 @@ Download the witty map then paste it the plugin directory. or download it via pl
 = Can I change the style of marker label? =
 Yes, using CSS, just target this class .witty-label.
 
-Example : 
-
-#witty-map-wrap .witty-label {
-	background-color : #000;
-	color : #FFF;
-}
+Example : #witty-map-wrap .witty-label { background-color : #000; color : #FFF; }
 
 = How to show witty map in content area? =
 
