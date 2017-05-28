@@ -1,16 +1,17 @@
-== Witty Map ==
-Contributors: robertreborobert
+## Witty Map 
+**Contributors:** robertreborobert  
 Donate link: 
-Tags: map, googlemap, google map
-Requires at least: 4
-Tested up to: 4.7.4
-Stable tag: 1.0.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+**Tags:** map, googlemap, google map  
+**Requires at least:** 4  
+**Tested up to:** 4.7.4  
+**Stable tag:** 1.0.1  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 Witty Map, add google map in content area or in template file (using shortcode). Most important you can customize its view.
 
-== Description ==
+
+## Description 
 
 Witty map can :
 * Set Marker Label.
@@ -25,13 +26,16 @@ Witty map can :
 * Enable / Disable street view control.
 
 
-== Installation ==
+
+## Installation 
 
 Download the witty map then paste it the plugin directory. or download it via plugin menu of admin's backend.
 
-== Frequently Asked Questions ==
 
-= Can I change the style of marker label? =
+## Frequently Asked Questions 
+
+
+### Can I change the style of marker label? 
 Yes, using CSS, just target this class .witty-label.
 
 Example : 
@@ -41,30 +45,36 @@ Example :
 	color : #FFF;
 }
 
-= How to show witty map in content area? =
+
+### How to show witty map in content area? 
 
 [witty-map]
 
-= How to echo map in code =
+
+### How to echo map in code 
 
 echo do_shortcode('[googleMap]');
 
-= List of witty map action =
+
+### List of witty map action 
 
 add( 'witty_map_before', [your function] );
 
 add( 'witty_map_after', [your function] );
 
 
-== Changelog ==
 
-= 1.0.1 =
+## Changelog 
+
+
+### 1.0.1 
 * Improve admin interface
 * Map Marker Label
 * Marker Label location ( x and y axis )
 * Fix errors ( undefined values ) when wp_debug is on
 
-= 0.0.2 =
+
+### 0.0.2 
 * Set center of the map.
 * Set Zoom level.
 * Modify default map pointer/marker.
@@ -74,10 +84,13 @@ add( 'witty_map_after', [your function] );
 * Enable / Disable Scroll wheel.
 * Enable / Disable street view control.
 
-= 0.0.1 =
+
+### 0.0.1 
 * initilize
 
-== Upgrade Notice ==
 
-= 1.0.1 =
+## Upgrade Notice 
+
+
+### 1.0.1 
 Fix some error, improve admin interface and enabled map marker label feature.
