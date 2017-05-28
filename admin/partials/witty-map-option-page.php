@@ -122,12 +122,13 @@
                 </tr>
 
                 <tr valign="top">
-                    <th scope="row"> <label>Label</label></th>
+                    <th scope="row"> <label>Location title</label></th>
                     <td>
                         <?php
                             $support->witty_template( 'inc', 'witty-field-common', [ 
                                 'type'  =>  'text',
                                 'name'  =>  'wittymap_markerLabel',
+                                'value' =>  $wittymap_markerLabel,
                                 'attrb' =>  [
                                     'id'    =>  'wittymap-label',
                                     'class' =>  'regular-text'
@@ -139,28 +140,30 @@
                 </tr>
 
                 <tr valign="top">
-                    <th scope="row"> <label>Label X Coordinate</label></th>
+                    <th scope="row"> <label>Label X Axis</label></th>
                     <td>
                         <?php
                             $support->witty_template( 'inc', 'witty-field-common', [ 
                                 'type'  =>  'number',
                                 'name'  =>  'wittymap_labelX',
+                                'value' =>  $wittymap_labelX
                             ] );
                         ?>
-                        <span class="description">Marker X Coordinate relative to the position of the Marker</span>
+                        <span class="description">Label X Axis relative to the position of the Marker</span>
                     </td>
                 </tr>
 
                 <tr valign="top">
-                    <th scope="row"> <label>Label Y Coordinate</label></th>
+                    <th scope="row"> <label>Label Y Axis</label></th>
                     <td>
                         <?php
                             $support->witty_template( 'inc', 'witty-field-common', [ 
                                 'type'  =>  'number',
                                 'name'  =>  'wittymap_labelY',
+                                'value' =>  $wittymap_labelY
                             ] );
                         ?>
-                        <span class="description">Marker Y Coordinate relative to the position of the Marker</span>
+                        <span class="description">Label Y Axis relative to the position of the Marker</span>
                     </td>
                 </tr>        
             </table>

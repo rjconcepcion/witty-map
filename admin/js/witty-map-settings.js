@@ -105,8 +105,6 @@
 			$( ".witty-tabs-cont" ).hide();
 
 			$( "#witty-map-tabs a" ).not( this ).removeClass( 'active' );
-
-
 			
 			$( wittyTabsVal ).show( 0, function(){
 				ths.addClass( "active" );

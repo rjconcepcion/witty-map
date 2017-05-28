@@ -14,6 +14,12 @@
 
 	var marker;
 
+	var labelX = parseInt(wm.wittyMapLabelX);
+
+	var labelY = parseInt(wm.wittyMapLabelY);
+
+	var mapLabel = wm.wittyMapLabel ? wm.wittyMapLabel : false;
+
 	var googlemap = {
 
 		/**
@@ -35,15 +41,20 @@
 		 */
 		plotMarker : function(latlng){
 
-			marker = new MarkerWithLabel({
+			var args = {
 				position: latlng,
 				map: map,
 				icon : wm.wittyMapMarker,
 				animation: google.maps.Animation.DROP,
-				// labelContent: "Meycauayan College",
-				// labelAnchor: new google.maps.Point(80, -10),
-				// labelClass: "witty-label",
-			});
+			}
+
+			if(mapLabel){
+				args['labelContent']	= 	mapLabel;
+				args['labelAnchor'] 	= 	new google.maps.Point( labelX, labelY );
+				args['labelClass'] 		= 	"witty-label";
+			}
+
+			marker = new MarkerWithLabel( args );
 		},
 
 		/**

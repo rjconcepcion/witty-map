@@ -4,7 +4,7 @@
  * Witty map admin control / backend
  *
  * @class       witty_map_backend
- * @version     1
+ * @version     1.0.1
  * @package     wittyMap/admin
  * @author      Robert John Concepcion
  */
@@ -62,13 +62,12 @@ class witty_map_backend
 			100
 		);
 
-    add_meta_box(	'transaction_metabox',				//metabox slug
-    				'Set as Featured Post in Home',		//metabox title
-    				'set_as_featured',					//callback function
-    				'witty-map-settings',					//custom post type
-    				'side',								//position
-    				'default');		
-
+	    add_meta_box(	'transaction_metabox',				//metabox slug
+	    				'Set as Featured Post in Home',		//metabox title
+	    				'set_as_featured',					//callback function
+	    				'witty-map-settings',					//custom post type
+	    				'side',								//position
+	    				'default');		
 
 		/**
 		 * Will not continue if admin menu was not successfully create
@@ -81,7 +80,7 @@ class witty_map_backend
 	 */
 	public function register_options() {
 
-		foreach (self::_opt_list() as $opt_key => $opt_arry):
+		foreach (self::_opt_keys() as $opt_key):
 			register_setting( 'witty-map-settings-group', $opt_key );
 		endforeach;
 	}
@@ -93,12 +92,6 @@ class witty_map_backend
 		$support = $this->support;
 
 		do_settings_sections( 'witty-map-settings-group' );
-
-		// $key_value = self::_opt_list();
-		// foreach ($key_value as $opt_key => $opt_arry):
-		// 	$key_value[ $opt_key ]['value'] = esc_attr( get_option( $opt_key ) );
-		// endforeach;
-		
 
 		$opt_keys = self::_opt_keys();
 		$opt_keys_values = [];
@@ -122,82 +115,9 @@ class witty_map_backend
 			'wittymap_zoomControl',
 			'wittymap_scrollWheel',
 			'wittymap_streetView',
-		];
-	}
-
-
-	/**
-	 * Option page field declaration
-	 */
-	private function _opt_list(){		
-
-		return [
-			'googlemapapi_key'			=> [
-				'template_name' =>	"witty-field-common",
-				'type'			=>	"text",
-				'label'			=>	"Google map api key",
-				'desc'			=>	"Witty map plugin required <a href='https://developers.google.com/maps/documentation/javascript/get-api-key' target='_blank'>google map api key</a>.",
-				'attrb'			=>	[
-					'id'    =>  'googlemapapi-key',
-					'class' =>  'regular-text'
-				],
-			],
-			'wittymap_loc'				=> [
-				'template_name' =>	"witty-field-common",
-				'type'			=>	"text",
-                'label'			=>	"Map Center",
-                'desc'			=>	"Set Center of the map. Must be a valid longitude and latitude from google map, format : <b>longitude, latitude</b>",
-                'attrb' =>  [
-                    'id'    =>  'wittymap-center',
-                    'class' =>  'regular-text'
-                ],                
-			],
-			'wittymap_def_zoom'			=> [
-				'template_name' =>	"witty-field-common",
-				'type'			=>	"number",
-                'label'			=>	"Default Map Zoom",
-                'desc'			=>	"Zoom level of the map (the bigger the number the zoom it be). <b>default value : 5, max value : 18</b>",
-                'attrb' =>  [
-                    'id'    =>  'wittymap-center',
-                    'class' =>  'regular-text'
-                ],                		
-			],
-			'wittymap_marker'			=> [
-				'template_name' =>	"witty-field-imgbox",
-				'type'			=>	"",
-				'label'			=>	"Map Pointer",
-				'desc'			=>	"Use image as marker of the map.",
-			],
-			'wittymap_draggable'		=> [
-				'template_name'	=>	"witty-field-checkbox",
-				'type'			=>	"",		
-				'label'			=>	"Draggable",
-				'desc'			=>	"Map can be drag to check other parts of the map.",	
-			],
-			'wittymap_doubleClickZoom'	=> [
-				'template_name'	=>	"witty-field-checkbox",
-				'type'			=>	"",
-				'label'			=>	"Double click will zoom",
-				'desc'			=>	"Enables/disables zoom and center on double click.",
-			],
-			'wittymap_zoomControl'		=> [
-				'template_name'	=>	"witty-field-checkbox",
-				'type'			=>	"",
-				'label'			=>	"Zoom Control",
-				'desc'			=>	"Located at right bottom of the map.",
-			],
-			'wittymap_scrollWheel'		=> [
-				'template_name'	=>	"witty-field-checkbox",
-				'type'			=>	"",
-				'label'			=>	"Scroll Wheel",
-				'desc'			=>	"If checked, disables scrollwheel zooming on the map.",
-			],
-			'wittymap_streetView'		=> [
-				'template_name'	=>	"witty-field-checkbox",
-				'type'			=>	"",
-				'label'			=>	"Street View Control",
-				'desc'			=>	"Located at right bottom of the map",
-			],
+			'wittymap_markerLabel',
+			'wittymap_labelX',
+			'wittymap_labelY',
 		];
 	}
 

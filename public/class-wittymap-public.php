@@ -46,6 +46,9 @@ class witty_map_public
 			'wittyMapZoomCtrl'=> get_option( 'wittymap_zoomControl' ),
 			'wittyMapScrollWheel'=> get_option( 'wittymap_scrollWheel' ),
 			'wittyMapStreetView'=> get_option( 'wittymap_streetView' ),
+			'wittyMapLabel'=> get_option( 'wittymap_markerLabel' ),
+			'wittyMapLabelX'=> get_option( 'wittymap_labelX' ),
+			'wittyMapLabelY'=> get_option( 'wittymap_labelY' ),
 		] );
 	}
 
