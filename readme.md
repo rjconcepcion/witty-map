@@ -14,7 +14,7 @@ Witty Map, add google map in content area or in template file (using shortcode).
 ## Description 
 
 Witty map can :
-* Set Marker Label.
+* Set Marker Label
 * Marker Label location ( x and y axis )
 * Set center of the map.
 * Set Zoom level.
